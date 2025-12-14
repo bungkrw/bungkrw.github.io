@@ -1,0 +1,1254 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Playful & Colorful</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Google Sans', 'Product Sans', sans-serif;
+            background: #f5f5f5;
+            color: #2d2d2d;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-logo img {
+            height: 75px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+            font-size: 1rem;
+        }
+
+        .nav-links a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FF9BA5;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FF9BA5;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background: rgba(26, 26, 26, 0.98);
+        }
+
+        body.dark-mode .nav-logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .header-section {
+            background: linear-gradient(135deg, #2a1a1f 0%, #1f1f25 50%, #1a2030 100%);
+        }
+
+        body.dark-mode .about-section {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .about-text {
+            color: #ccc;
+        }
+
+        body.dark-mode .about-image {
+            background: linear-gradient(135deg, #8B6F47 0%, #8B7F57 100%);
+        }
+
+        body.dark-mode .projects-section {
+            background: #3a3a2a;
+        }
+
+        body.dark-mode .project-card {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .project-card h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .project-card p {
+            color: #bbb;
+        }
+
+        body.dark-mode .project-image {
+            background: linear-gradient(135deg, #6B8FB8 0%, #7B9FA5 100%) !important;
+        }
+
+        body.dark-mode .experience-education-section {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .timeline-item {
+            background: #3d3d3d;
+        }
+
+        body.dark-mode .experience-item {
+            border-left-color: #7BA85A;
+        }
+
+        body.dark-mode .education-item {
+            border-left-color: #CF8575;
+        }
+
+        body.dark-mode .timeline-item h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .position,
+        body.dark-mode .date,
+        body.dark-mode .description,
+        body.dark-mode .details {
+            color: #bbb;
+        }
+
+        body.dark-mode .talks-section {
+            background: linear-gradient(135deg, #2a1a1f 0%, #1f1f25 50%, #1a2030 100%);
+        }
+
+        body.dark-mode .talk-card {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .talk-image {
+            opacity: 0.7;
+        }
+
+        body.dark-mode .talk-card h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .talk-event,
+        body.dark-mode .talk-description {
+            color: #bbb;
+        }
+
+        body.dark-mode .badge-conference {
+            background: #6B8FB8;
+        }
+
+        body.dark-mode .badge-workshop {
+            background: #CF8575;
+        }
+
+        body.dark-mode .badge-university {
+            background: #7BA85A;
+        }
+
+        body.dark-mode .talk-link {
+            color: #7BA85A;
+            border-color: #7BA85A;
+        }
+
+        body.dark-mode .talk-link:hover {
+            background: #7BA85A;
+            color: white;
+        }
+
+        body.dark-mode .tech-stacks-section {
+            background: linear-gradient(135deg, #2a1a1f 0%, #1f1f25 50%, #1a2030 100%);
+        }
+
+        body.dark-mode .skill-category {
+            background: #2d2d2d;
+        }
+
+        body.dark-mode .skill-category h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .skill-badge {
+            background: #3d3d3d;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .skill-badge:nth-child(5n+1) { background: #3d5670; color: #a0c8f5; }
+        body.dark-mode .skill-badge:nth-child(5n+2) { background: #5a5d38; color: #c8dca8; }
+        body.dark-mode .skill-badge:nth-child(5n+3) { background: #5a5028; color: #ffe8b8; }
+        body.dark-mode .skill-badge:nth-child(5n+4) { background: #5a3328; color: #ffd4c4; }
+        body.dark-mode .skill-badge:nth-child(5n) { background: #5a1328; color: #ffd4e0; }
+
+        body.dark-mode .contact-section {
+            background: #2d3d4d;
+        }
+
+        body.dark-mode .contact-section h2 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .contact-btn {
+            background: #3d4d5d;
+            color: #ffffff;
+            border: 1px solid #5d6d7d;
+        }
+
+        body.dark-mode .contact-btn:hover {
+            background: #4d5d6d;
+        }
+
+        body.dark-mode footer {
+            background: #2d2d2d;
+            border-top-color: #444;
+            color: #888;
+        }
+
+        body.dark-mode .see-more-btn {
+            background: #6B8FB8;
+        }
+
+        body.dark-mode #education .see-more-btn {
+            background: #7BA85A;
+        }
+
+        body.dark-mode .see-more-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Scattered decorative elements */
+        .decoration {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.4;
+        }
+
+        .heart {
+            width: 30px;
+            height: 30px;
+        }
+
+        .heart::before {
+            content: "♥";
+            color: #FFA0B4;
+            font-size: 30px;
+        }
+
+        .star {
+            width: 30px;
+            height: 30px;
+        }
+
+        .star::before {
+            content: "✦";
+            color: #A8C5D9;
+            font-size: 30px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #FFD699;
+        }
+
+        /* Positioning decorations only on header */
+        .decoration:nth-child(1) { top: 5%; left: 2%; animation: float 6s ease-in-out infinite; }
+        .decoration:nth-child(2) { top: 65%; right: 5%; animation: float 7s ease-in-out infinite 1s; }
+        .decoration:nth-child(3) { top: 35%; left: 15%; animation: float 8s ease-in-out infinite 2s; }
+        .decoration:nth-child(4) { top: 75%; right: 20%; animation: float 6s ease-in-out infinite 3s; }
+        .decoration:nth-child(5) { top: 10%; left: 35%; animation: float 7s ease-in-out infinite 4s; }
+        .decoration:nth-child(6) { top: 55%; right: 2%; animation: float 8s ease-in-out infinite 1.5s; }
+        .decoration:nth-child(7) { top: 50%; left: 5%; animation: float 6s ease-in-out infinite 2.5s; }
+        .decoration:nth-child(8) { top: 25%; right: 30%; animation: float 7s ease-in-out infinite 3.5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        .section {
+            width: 100%;
+            padding: 80px 60px;
+        }
+
+        .section-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Header Hero Section */
+        .header-section {
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFFBF5 50%, #F5F8FF 100%);
+            padding: 120px 60px 80px;
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-section .signature-img {
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto 30px;
+            display: block;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .header-section h1 {
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #FF9BA5;
+        }
+
+        .header-section .subtitle {
+            font-size: 1.15rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #ffffff;
+            display: block;
+            text-align: center;
+        }
+
+        .about-content h2 {
+            font-size: 2.1rem;
+            color: #1a1a1a;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .about-content p {
+            font-size: 1.05rem;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .about-image {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #FFD4C4 0%, #FFE8B8 100%);
+            border-radius: 50%;
+            margin: 40px auto 0;
+        }
+
+        /* Projects Grid Section */
+        .projects-section {
+            background: #FFE8B8;
+        }
+
+        .projects-section h2 {
+            font-size: 2.1rem;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #D4E8F5 0%, #C4D9A0 100%);
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            background: #f0f0f0;
+            color: #555;
+        }
+
+        /* Talks & Workshops Section */
+        .talks-section {
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFFBF5 50%, #F5F8FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .talks-section h2 {
+            font-size: 2.1rem;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .talks-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Consistent card layout */
+        .talk-card {
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .talk-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .talk-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .talk-card h3 {
+            color: #1a1a1a;
+            font-size: 1.25rem;
+            margin: 0;
+            font-weight: 600;
+            padding: 20px 30px 0 30px;
+        }
+
+        .talk-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #1a1a1a;
+            margin: 20px 30px 0 30px;
+        }
+
+        .badge-conference {
+            background: #B8D4E8;
+        }
+
+        .badge-workshop {
+            background: #FF9BA5;
+        }
+
+        .badge-university {
+            background: #C4D9A0;
+        }
+
+        .talk-event {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 10px 30px 0 30px;
+            font-weight: 500;
+        }
+
+        .talk-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 15px 30px 0 30px;
+            line-height: 1.5;
+        }
+
+        .talk-links {
+            display: flex;
+            gap: 10px;
+            margin: 15px 30px 30px 30px;
+            flex-wrap: wrap;
+        }
+
+        .talk-link {
+            color: #B8D4E8;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 2px solid #B8D4E8;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .talk-link:hover {
+            background: #B8D4E8;
+            color: white;
+        }
+
+        /* Experience & Education Section */
+        .experience-education-section {
+            background: white;
+        }
+
+        .see-more-btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background: #B8D4E8;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        #education .see-more-btn {
+            background: #C4D9A0;
+            color: #1a1a1a;
+        }
+
+        .see-more-btn:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        #education .see-more-btn:hover {
+            background: #B4C990;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 50px;
+            align-items: start;
+        }
+
+        .dual-heading {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section-column {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            border: none;
+        }
+
+        .column-heading {
+            font-size: 1.35rem;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .experience-education-section h2 {
+            font-size: 2.1rem;
+            color: #1a1a1a;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .timeline-item {
+            border-left: 4px solid;
+            padding: 20px 0 20px 25px;
+        }
+
+        .timeline-item.experience-item {
+            border-left-color: #C4D9A0;
+        }
+
+        .timeline-item.education-item {
+            border-left-color: #FFB5A0;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .timeline-item .position {
+            color: #FF9BA5;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item .description {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item .details {
+            color: #777;
+            font-size: 0.85rem;
+        }
+
+        /* Tech Stacks Section */
+        .tech-stacks-section {
+            background: linear-gradient(135deg, #FFF5F7 0%, #FFFBF5 50%, #F5F8FF 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-stacks-section h2 {
+            font-size: 2.1rem;
+            color: #1a1a1a;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+
+        .skill-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-badge {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .skill-badge:nth-child(5n+1) { background: #D4E8F5; color: #2d5670; }
+        .skill-badge:nth-child(5n+2) { background: #D9DCA8; color: #4d5028; }
+        .skill-badge:nth-child(5n+3) { background: #FFE8B8; color: #735d2d; }
+        .skill-badge:nth-child(5n+4) { background: #FFD4C4; color: #73392d; }
+        .skill-badge:nth-child(5n) { background: #FFD4E0; color: #73132d; }
+
+        /* Contact Section */
+        .contact-section {
+            background: #B8D4E8;
+            text-align: center;
+            padding: 100px 60px;
+        }
+
+        .contact-section h2 {
+            font-size: 2.1rem;
+            color: white;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-btn {
+            padding: 14px 35px;
+            background: white;
+            color: #2d2d2d;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 40px 60px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 60px 40px;
+            }
+
+            .nav-container {
+                padding: 0 40px;
+            }
+
+            .nav-links {
+                gap: 25px;
+            }
+
+            .about-section,
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-section h1 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 0;
+            }
+
+            .nav-container {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .section {
+                padding: 40px 24px;
+            }
+
+            footer {
+                padding: 30px 24px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-section h1 {
+                font-size: 2.1rem;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="download.png" alt="Signature Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#talks">Talks & Workshops</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Tech Stacks</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Header Hero -->
+    <section class="header-section">
+        <!-- Scattered decorations -->
+        <div class="decoration heart"></div>
+        <div class="decoration star"></div>
+        <div class="decoration dot"></div>
+        <div class="decoration heart"></div>
+        <div class="decoration star"></div>
+        <div class="decoration dot"></div>
+        <div class="decoration heart"></div>
+        <div class="decoration star"></div>
+
+        <h1>Kanrawee Chiamsakul</h1>
+        <p class="subtitle">Software Engineer & Creative Coder</p>
+    </section>
+
+    <!-- About -->
+    <section class="section about-section" id="about">
+        <div class="section-content">
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>Hi! I'm a software engineer passionate about building beautiful, functional, and user-friendly digital experiences. I love combining technical expertise with creative problem-solving.</p>
+                <p>With experience in full-stack development, I specialize in creating responsive web applications and collaborating with teams to bring ideas to life. When I'm not coding, you'll find me exploring new technologies and pushing creative boundaries.</p>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section projects-section" id="projects">
+        <div class="section-content">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-info">
+                        <h3>Project One</h3>
+                        <p class="project-desc">A beautiful web app that helps users track their daily habits with an intuitive, colorful interface.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-info">
+                        <h3>Project Two</h3>
+                        <p class="project-desc">An open-source component library with accessible, customizable UI elements.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Storybook</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-info">
+                        <h3>Project Three</h3>
+                        <p class="project-desc">A collaborative tool for teams to share design systems and maintain consistency.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Talks & Workshops -->
+    <section class="section talks-section" id="talks">
+        <div class="section-content">
+            <h2>Talks & Workshops</h2>
+            <div class="talks-container">
+                <!-- Conference Talk -->
+                <div class="talk-card">
+                    <div class="talk-image" style="background: linear-gradient(135deg, #B8D4E8 0%, #D4E8F5 100%);"></div>
+                    <div class="talk-badge badge-conference">Conference Talk</div>
+                    <h3>Building Scalable Web Apps</h3>
+                    <p class="talk-event">TechConf 2024 • San Francisco</p>
+                    <p class="talk-description">An in-depth exploration of modern web architecture patterns and best practices for scaling applications to millions of users.</p>
+                    <div class="talk-links">
+                        <a href="#" class="talk-link">Watch Recording</a>
+                        <a href="#" class="talk-link">Slides</a>
+                    </div>
+                </div>
+
+                <!-- Internal Workshop -->
+                <div class="talk-card">
+                    <div class="talk-image" style="background: linear-gradient(135deg, #FF9BA5 0%, #FFD4C4 100%);"></div>
+                    <div class="talk-badge badge-workshop">Internal Workshop</div>
+                    <h3>React Advanced Patterns</h3>
+                    <p class="talk-event">Company Tech Talk • Remote</p>
+                    <p class="talk-description">Hands-on workshop for internal team members covering advanced React patterns, hooks, and performance optimization techniques.</p>
+                    <div class="talk-links">
+                        <a href="#" class="talk-link">GitHub Repo</a>
+                        <a href="#" class="talk-link">Recording</a>
+                    </div>
+                </div>
+
+                <!-- University Engagement -->
+                <div class="talk-card">
+                    <div class="talk-image" style="background: linear-gradient(135deg, #C4D9A0 0%, #D4E8F5 100%);"></div>
+                    <div class="talk-badge badge-university">University Engagement</div>
+                    <h3>Web Development Career Path</h3>
+                    <p class="talk-event">State University • Computer Science Department</p>
+                    <p class="talk-description">Guest lecture sharing insights on modern web development careers, industry trends, and tips for students entering the field.</p>
+                    <div class="talk-links">
+                        <a href="#" class="talk-link">Slides</a>
+                        <a href="#" class="talk-link">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Conference Talk -->
+                <div class="talk-card">
+                    <div class="talk-image" style="background: linear-gradient(135deg, #B8D4E8 0%, #D4E8F5 100%);"></div>
+                    <div class="talk-badge badge-conference">Conference Talk</div>
+                    <h3>CSS Grid & Flexbox Mastery</h3>
+                    <p class="talk-event">Web Summit 2024 • Austin, TX</p>
+                    <p class="talk-description">Interactive session on advanced CSS layout techniques with live coding demonstrations and real-world design system applications.</p>
+                    <div class="talk-links">
+                        <a href="#" class="talk-link">Watch Recording</a>
+                        <a href="#" class="talk-link">Slides</a>
+                    </div>
+                </div>
+
+                <!-- Internal Workshop -->
+                <div class="talk-card">
+                    <div class="talk-image" style="background: linear-gradient(135deg, #FF9BA5 0%, #FFD4C4 100%);"></div>
+                    <div class="talk-badge badge-workshop">Internal Workshop</div>
+                    <h3>TypeScript Best Practices</h3>
+                    <p class="talk-event">Engineering Team • Hybrid</p>
+                    <p class="talk-description">Workshop covering TypeScript fundamentals, advanced type system features, and practical patterns for building type-safe applications.</p>
+                    <div class="talk-links">
+                        <a href="#" class="talk-link">GitHub Repo</a>
+                        <a href="#" class="talk-link">Recording</a>
+                    </div>
+                </div>
+
+                <!-- University Engagement -->
+                <div class="talk-card">
+                    <div class="talk-image" style="background: linear-gradient(135deg, #C4D9A0 0%, #D4E8F5 100%);"></div>
+                    <div class="talk-badge badge-university">University Engagement</div>
+                    <h3>Accessibility First Development</h3>
+                    <p class="talk-event">Tech University • Computer Science</p>
+                    <p class="talk-description">Lecture on building inclusive web applications, WCAG standards, and why accessibility should be a priority from the start.</p>
+                    <div class="talk-links">
+                        <a href="#" class="talk-link">Slides</a>
+                        <a href="#" class="talk-link">Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section class="section experience-education-section" id="experience">
+        <div class="section-content">
+            <div class="dual-heading">
+                <h2>Experience</h2>
+                <h2>Education</h2>
+            </div>
+            <div class="section-grid">
+                <!-- Experience -->
+                <div class="section-column">
+                    <div id="experienceTimeline" class="timeline">
+                        <div class="timeline-item experience-item">
+                            <h3>Tech Company Inc.</h3>
+                            <p class="position">Senior Software Engineer</p>
+                            <p class="date">📅 Jan 2022 - Present</p>
+                            <p class="description">Led development of full-stack web applications and mentored junior developers.</p>
+                            <p class="details">React • Node.js • TypeScript • PostgreSQL</p>
+                        </div>
+
+                        <div class="timeline-item experience-item">
+                            <h3>Creative Studio</h3>
+                            <p class="position">Frontend Developer</p>
+                            <p class="date">📅 Jun 2020 - Dec 2021</p>
+                            <p class="description">Designed and built responsive web interfaces for diverse clients.</p>
+                            <p class="details">React • CSS • Figma • Accessibility</p>
+                        </div>
+
+                        <div class="timeline-item experience-item">
+                            <h3>Startup Hub</h3>
+                            <p class="position">Junior Developer</p>
+                            <p class="date">📅 Mar 2019 - May 2020</p>
+                            <p class="description">Built features for mobile and web applications using modern frameworks.</p>
+                            <p class="details">JavaScript • React • MongoDB • Git</p>
+                        </div>
+                    </div>
+                    <a href="experience.html" class="see-more-btn">See More →</a>
+                </div>
+
+                <!-- Education -->
+                <div class="section-column" id="education">
+                    <div id="educationTimeline" class="timeline">
+                        <div class="timeline-item education-item">
+                            <h3>University of Technology</h3>
+                            <p class="position">Bachelor of Science in Computer Science</p>
+                            <p class="date">📅 2015 - 2019</p>
+                            <p class="description">Focused on web development and software engineering principles.</p>
+                            <p class="details">GPA: 3.8/4.0 • Dean's List</p>
+                        </div>
+
+                        <div class="timeline-item education-item">
+                            <h3>Online Learning Platform</h3>
+                            <p class="position">Full Stack Web Development Bootcamp</p>
+                            <p class="date">📅 2018 - 2019</p>
+                            <p class="description">Intensive 12-week program covering frontend, backend, and database technologies.</p>
+                            <p class="details">Completed • Certificate of Achievement</p>
+                        </div>
+                    </div>
+                    <a href="education.html" class="see-more-btn">See More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stacks -->
+    <section class="section tech-stacks-section" id="skills">
+        <!-- Scattered decorations -->
+        <div class="decoration heart"></div>
+        <div class="decoration star"></div>
+        <div class="decoration dot"></div>
+        <div class="decoration heart"></div>
+        <div class="decoration star"></div>
+        <div class="decoration dot"></div>
+        <div class="decoration heart"></div>
+        <div class="decoration star"></div>
+
+        <div class="section-content">
+            <h2>Tech Stacks</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">TypeScript</span>
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">CSS/Sass</span>
+                        <span class="skill-badge">HTML5</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                        <span class="skill-badge">REST APIs</span>
+                        <span class="skill-badge">MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">AWS</span>
+                        <span class="skill-badge">Figma</span>
+                        <span class="skill-badge">VS Code</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Communication</span>
+                        <span class="skill-badge">Problem Solving</span>
+                        <span class="skill-badge">Team Collaboration</span>
+                        <span class="skill-badge">Leadership</span>
+                        <span class="skill-badge">Creativity</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="section-content">
+            <h2>Let's Connect</h2>
+            <div class="contact-grid">
+                <a href="https://github.com" class="contact-btn">GitHub</a>
+                <a href="https://linkedin.com" class="contact-btn">LinkedIn</a>
+                <a href="mailto:your@email.com" class="contact-btn">Email</a>
+                <a href="https://twitter.com" class="contact-btn">Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        
+        // Check for saved theme preference or default to light mode
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
