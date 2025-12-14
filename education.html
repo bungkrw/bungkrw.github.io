@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Playful & Colorful</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --accent-blue: #D4E8F5;
+            --accent-olive: #D9DCA8;
+            --accent-sand: #FFE8B8;
+            --accent-coral: #FFD4C4;
+            --accent-rose: #FFD4E0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lexend', 'Google Sans', 'Product Sans', sans-serif;
+            background: #f5f5f5;
+            color: #2d2d2d;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d2d2d;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            height: 75px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            font-size: 1rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d2d2d;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #C4D9A0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background: #1a1a1a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode nav {
+            background: rgba(26, 26, 26, 0.98);
+        }
+
+        body.dark-mode .nav-logo {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .nav-links a {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode h1 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .back-button {
+            background: #7BA85A;
+            border: none;
+        }
+
+        body.dark-mode .back-button:hover {
+            background: #8BB86A;
+        }
+
+        body.dark-mode .education-item {
+            background: #2d2d2d;
+            border-left-color: #CF8575;
+        }
+
+        body.dark-mode .education-item:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        body.dark-mode .education-header h3 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .education-school {
+            color: #bbb;
+        }
+
+        body.dark-mode .education-details {
+            color: #999;
+        }
+
+        body.dark-mode .education-gpa {
+            background: #3d5045;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .achievements h4 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .achievement-list li {
+            color: #bbb;
+        }
+
+        body.dark-mode .achievement-list li::before {
+            color: #CF8575;
+        }
+
+        body.dark-mode .scholarships-section h2 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .scholarship-item {
+            background: linear-gradient(135deg, #3d3a2a 0%, #3d3530 100%);
+        }
+
+        body.dark-mode .scholarship-item h4 {
+            color: #FFD699;
+        }
+
+        body.dark-mode .scholarship-details {
+            color: #bbb;
+        }
+
+        body.dark-mode .scholarship-amount {
+            color: #FFD699;
+        }
+
+        body.dark-mode .coursework-section h2 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .course-card {
+            background: #2d2d2d;
+            border-color: #3d5045;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .course-card:hover {
+            border-color: #7BA85A;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark-mode .course-card h4 {
+            color: #ffffff;
+        }
+
+        body.dark-mode .course-grade {
+            color: #bbb;
+        }
+
+        body.dark-mode footer {
+            background: #2d2d2d;
+            border-top-color: #444;
+            color: #888;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 60px 80px;
+        }
+
+        .page-title {
+            font-size: 2.25rem;
+            color: #1a1a1a;
+            margin-bottom: 60px;
+            text-align: center;
+            font-weight: 600;
+            display: block;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 6px;
+            margin: 16px auto 0;
+            border-radius: 999px;
+            background: var(--accent-sand);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            padding: 10px 20px;
+            background: #C4D9A0;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #B4C990;
+            transform: translateX(-5px);
+        }
+
+        /* Education Timeline */
+        .education-items {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .education-item {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            border-left: 5px solid #FFB5A0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .education-header h3 {
+            color: #1a1a1a;
+            font-size: 1.35rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .education-year {
+            background: #FFE8B8;
+            color: #1a1a1a;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .education-school {
+            color: #666;
+            font-size: 1rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .education-details {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .education-gpa {
+            display: inline-block;
+            background: #D4E8F5;
+            color: #1a1a1a;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .achievements {
+            margin-top: 15px;
+        }
+
+        .achievements h4 {
+            color: #1a1a1a;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .achievement-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievement-list li {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .achievement-list li::before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #FFB5A0;
+            font-weight: bold;
+        }
+
+        /* Scholarships Section */
+        .scholarships-section {
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 2px solid #eee;
+        }
+
+        .scholarships-section h2 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .scholarship-item {
+            background: linear-gradient(135deg, #FFE8B8 0%, #FFD4C4 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .scholarship-item:hover {
+            transform: translateX(8px);
+        }
+
+        .scholarship-item h4 {
+            color: #8B4513;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .scholarship-details {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .scholarship-amount {
+            color: #8B4513;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 8px;
+        }
+
+        /* Coursework Section */
+        .coursework-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #eee;
+        }
+
+        .coursework-section h2 {
+            font-size: 1.8rem;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .coursework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid #D4E8F5;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            border-color: #B8D4E8;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .course-card h4 {
+            color: #1a1a1a;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .course-grade {
+            color: #666;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            padding: 40px 60px;
+            text-align: center;
+            color: #777;
+            margin-top: 80px;
+            border-top: 1px solid #eee;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 100px 40px 60px;
+            }
+
+            .nav-container {
+                padding: 0 40px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 100px 20px 60px;
+            }
+
+            .nav-container {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .education-year {
+                margin-top: 10px;
+            }
+
+            .coursework-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-item {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="download.png" alt="Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="education.html">Education</a></li>
+                <li><a href="index.html#skills">Tech Stacks</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">🌙</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="index.html" class="back-button">← Back to Portfolio</a>
+        
+        <h1 class="page-title">Education</h1>
+        
+        <div class="education-items">
+            <!-- Degree 1 -->
+            <div class="education-item">
+                <div class="education-header">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <span class="education-year">2017 - 2021</span>
+                </div>
+                <p class="education-school">State University</p>
+                <p class="education-details">Major: Computer Science | Minor: Business Administration</p>
+                <div class="education-gpa">GPA: 3.8/4.0</div>
+                <div class="achievements">
+                    <h4>Highlights</h4>
+                    <ul class="achievement-list">
+                        <li>Graduated with Honors and High Distinction</li>
+                        <li>Dean's List all 4 years</li>
+                        <li>Led Computer Science Club with 200+ members</li>
+                        <li>Published 2 research papers on web accessibility</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Degree 2 -->
+            <div class="education-item">
+                <div class="education-header">
+                    <h3>Advanced Certification in Web Development</h3>
+                    <span class="education-year">2021 - 2022</span>
+                </div>
+                <p class="education-school">Tech Academy Online</p>
+                <p class="education-details">Full-stack web development with modern frameworks and DevOps</p>
+                <div class="education-gpa">Cumulative Score: 98/100</div>
+                <div class="achievements">
+                    <h4>Highlights</h4>
+                    <ul class="achievement-list">
+                        <li>Completed capstone project with 1000+ GitHub stars</li>
+                        <li>Finalist in national hackathon competition</li>
+                        <li>Received job offer from Google before graduation</li>
+                        <li>Mentored 10+ students in the program</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scholarships Section -->
+        <div class="scholarships-section">
+            <h2>Scholarships & Awards</h2>
+            
+            <div class="scholarship-item">
+                <h4>National Merit Scholarship</h4>
+                <p class="scholarship-details">State University</p>
+                <p class="scholarship-amount">$50,000 total over 4 years</p>
+            </div>
+
+            <div class="scholarship-item">
+                <h4>Tech Innovators Excellence Scholarship</h4>
+                <p class="scholarship-details">Tech Academy Online</p>
+                <p class="scholarship-amount">100% tuition coverage + $10,000 stipend</p>
+            </div>
+
+            <div class="scholarship-item">
+                <h4>Women in Tech Scholarship</h4>
+                <p class="scholarship-details">TechGirls Foundation</p>
+                <p class="scholarship-amount">$15,000 annual award</p>
+            </div>
+
+            <div class="scholarship-item">
+                <h4>Community Service Award</h4>
+                <p class="scholarship-details">State University</p>
+                <p class="scholarship-amount">$5,000 for volunteer work</p>
+            </div>
+        </div>
+
+        <!-- Coursework Section -->
+        <div class="coursework-section">
+            <h2>Relevant Coursework</h2>
+            
+            <div class="coursework-grid">
+                <div class="course-card">
+                    <h4>Data Structures & Algorithms</h4>
+                    <p class="course-grade">Grade: A</p>
+                </div>
+                <div class="course-card">
+                    <h4>Database Systems</h4>
+                    <p class="course-grade">Grade: A</p>
+                </div>
+                <div class="course-card">
+                    <h4>Web Development & Design</h4>
+                    <p class="course-grade">Grade: A+</p>
+                </div>
+                <div class="course-card">
+                    <h4>Software Engineering</h4>
+                    <p class="course-grade">Grade: A</p>
+                </div>
+                <div class="course-card">
+                    <h4>Advanced JavaScript & React</h4>
+                    <p class="course-grade">Grade: A+</p>
+                </div>
+                <div class="course-card">
+                    <h4>Cloud Computing & AWS</h4>
+                    <p class="course-grade">Grade: A</p>
+                </div>
+                <div class="course-card">
+                    <h4>Mobile App Development</h4>
+                    <p class="course-grade">Grade: A</p>
+                </div>
+                <div class="course-card">
+                    <h4>Cybersecurity Fundamentals</h4>
+                    <p class="course-grade">Grade: A-</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙';
+            }
+        });
+    </script>
+</body>
+</html>

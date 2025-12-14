@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Playful & Colorful</title>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --accent-blue: #D4E8F5;
+            --accent-olive: #D9DCA8;
+            --accent-sand: #FFE8B8;
+            --accent-coral: #FFD4C4;
+            --accent-rose: #FFD4E0;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,7 +21,7 @@
         }
 
         body {
-            font-family: 'Google Sans', 'Product Sans', sans-serif;
+            font-family: 'Lexend', 'Google Sans', 'Product Sans', sans-serif;
             background: #f5f5f5;
             color: #2d2d2d;
             line-height: 1.6;
@@ -391,12 +399,37 @@
             text-align: center;
         }
 
+        h2 {
+            position: relative;
+            display: inline-block;
+            font-weight: 500;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 110px;
+            height: 6px;
+            margin: 14px auto 0;
+            border-radius: 999px;
+            background: var(--accent-olive);
+        }
+
         .about-content h2 {
             font-size: 2.1rem;
             color: #1a1a1a;
             margin-bottom: 40px;
             font-weight: 500;
         }
+
+        /* Palette-matched underline accents */
+        .about-section h2::after { background: var(--accent-rose); }
+        .projects-section h2::after { background: var(--accent-blue); }
+        .talks-section h2::after { background: var(--accent-coral); }
+        .dual-heading h2:first-child::after { background: var(--accent-olive); }
+        .dual-heading h2:last-child::after { background: var(--accent-sand); }
+        .tech-stacks-section h2::after { background: var(--accent-blue); }
+        .contact-section h2::after { background: var(--accent-rose); }
 
         .about-content p {
             font-size: 1.05rem;
@@ -682,11 +715,11 @@
         }
 
         .timeline-item.experience-item {
-            border-left-color: #C4D9A0;
+            border-left-color: #A0C8F5;
         }
 
         .timeline-item.education-item {
-            border-left-color: #FFB5A0;
+            border-left-color: #C4D9A0;
         }
 
         .timeline-item h3 {
@@ -934,7 +967,7 @@
         <div class="decoration heart"></div>
         <div class="decoration star"></div>
 
-        <h1>Kanrawee Chiamsakul</h1>
+        <h1>Bung Kanrawee</h1>
         <p class="subtitle">Software Engineer & Creative Coder</p>
     </section>
 
@@ -1095,28 +1128,38 @@
                 <div class="section-column">
                     <div id="experienceTimeline" class="timeline">
                         <div class="timeline-item experience-item">
-                            <h3>Tech Company Inc.</h3>
-                            <p class="position">Senior Software Engineer</p>
-                            <p class="date">📅 Jan 2022 - Present</p>
-                            <p class="description">Led development of full-stack web applications and mentored junior developers.</p>
-                            <p class="details">React • Node.js • TypeScript • PostgreSQL</p>
+                            <h3>ExxonMobil</h3>
+                            <p class="position">Full Stack Web Developer</p>
+                            <p class="date">Full-time • 3 yrs 7 mos</p>
+                            <p class="description">Designed and led the backend and AI architecture of the GenAI Starter Kit Template, building modular RAG pipelines, multi-agent systems, and AI tools on Azure</p>
+                            <p class="details">Agent AI • Azure AI Foundry • Prompt Flow • Python • OpenShift • Terraform</p>
+                            <br>
+                            <p class="position">CI/CD Engineer</p>
+                            <p class="date">Jun 2022 - Feb 2024</p>
+                            <p class="description">Building reusable Terraform modules and GitHub Actions, advising teams on CI/CD and deployment strategy, and delivering an end-to-end data pipeline with Power BI insights to drive organization-wide adoption of modern engineering practices.</p>
+                            <p class="details">GitHub Actions • Terraform</p>
                         </div>
 
                         <div class="timeline-item experience-item">
-                            <h3>Creative Studio</h3>
-                            <p class="position">Frontend Developer</p>
-                            <p class="date">📅 Jun 2020 - Dec 2021</p>
-                            <p class="description">Designed and built responsive web interfaces for diverse clients.</p>
-                            <p class="details">React • CSS • Figma • Accessibility</p>
+                            <h3>University of Bremen</h3>
+                            <p class="position">Research Internship</p>
+                            <p class="date">Jan 2022 - Mar 2022</p>
+                            <p class="description">Worked with the project team to build a low-cost IoT-deployable mosquito noise cancellation, detection, and species-classification system, performing feature extraction and forward feature selection on wingbeat data to train effective machine learning models.</p>
+                        </div>
+
+                        <!-- <div class="timeline-item experience-item">
+                            <h3>Ajinomoto Co., Inc.</h3>
+                            <p class="position">RPA Developer Intern</p>
+                            <p class="date">Jun 2021 - Jul 2021</p>
+                            <p class="description">Automated repetitive business processes using UiPath—building multiple bots for SAP data extraction, reporting, and scheduling—while also testing and documenting internal systems, gathering user feedback, and supporting website content and design tasks.</p>
                         </div>
 
                         <div class="timeline-item experience-item">
-                            <h3>Startup Hub</h3>
-                            <p class="position">Junior Developer</p>
-                            <p class="date">📅 Mar 2019 - May 2020</p>
-                            <p class="description">Built features for mobile and web applications using modern frameworks.</p>
-                            <p class="details">JavaScript • React • MongoDB • Git</p>
-                        </div>
+                            <h3>Faculty of Information and Communication Technology (ICT), Mahidol University</h3>
+                            <p class="position">Lab & Teaching Assistant</p>
+                            <p class="date">May 2021 - Mar 2019</p>
+                            <p class="description">Assisted students with their class and lab assignments for Web Programming, Object Oriented Programming, Fundamental Programming and Reading Skills course.</p>
+                        </div> -->
                     </div>
                     <a href="experience.html" class="see-more-btn">See More →</a>
                 </div>
@@ -1125,20 +1168,13 @@
                 <div class="section-column" id="education">
                     <div id="educationTimeline" class="timeline">
                         <div class="timeline-item education-item">
-                            <h3>University of Technology</h3>
-                            <p class="position">Bachelor of Science in Computer Science</p>
-                            <p class="date">📅 2015 - 2019</p>
-                            <p class="description">Focused on web development and software engineering principles.</p>
-                            <p class="details">GPA: 3.8/4.0 • Dean's List</p>
+                            <h3>Mahidol University</h3>
+                            <p class="position">Bachelor of Science in Information and Communication Technology</p>
+                            <p class="date">2018 - 2022</p>
+                            <p class="description">Software Engineeing Major</p>
+                            <p class="details">GPA: 3.78/4.0 • Dean's List</p>
                         </div>
 
-                        <div class="timeline-item education-item">
-                            <h3>Online Learning Platform</h3>
-                            <p class="position">Full Stack Web Development Bootcamp</p>
-                            <p class="date">📅 2018 - 2019</p>
-                            <p class="description">Intensive 12-week program covering frontend, backend, and database technologies.</p>
-                            <p class="details">Completed • Certificate of Achievement</p>
-                        </div>
                     </div>
                     <a href="education.html" class="see-more-btn">See More →</a>
                 </div>
@@ -1250,5 +1286,3 @@
     </script>
 </body>
 </html>
-
-
